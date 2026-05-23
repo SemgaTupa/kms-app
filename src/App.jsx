@@ -1,4 +1,5 @@
 import { useState, useContext, createContext, useEffect, useCallback } from "react";
+import BotsModule from "./BotsModule";
 
 // ============================================================
 // THEME
@@ -313,6 +314,7 @@ function Sidebar({ navigate, currentPage }) {
     { page: "articles", icon: "📄", label: "Все статьи" },
     { page: "search", icon: "🔍", label: "Поиск" },
     { page: "favorites", icon: "★", label: "Избранное" },
+    { page: "bots", icon: "🤖", label: "Конструктор ботов" },
   ];
 
   return (
@@ -391,6 +393,7 @@ function Navbar({ navigate, currentPage }) {
           { page:"home", label:"Главная" },
           { page:"articles", label:"Статьи" },
           { page:"search", label:"Поиск" },
+          { page:"bots", label:"🤖 Боты" },
           ...(can("createArticle")?[{page:"article-new",label:"+ Статья"}]:[]),
           ...(can("manageUsers")?[{page:"admin",label:"Панель"}]:[]),
         ].map(l => <span key={l.page} className={`nav-link${currentPage===l.page?" active":""}`} onClick={() => navigate(l.page)}>{l.label}</span>)}
@@ -870,6 +873,7 @@ function AppInner({ route, navigate }) {
       case "admin": return <AdminPage/>;
       case "about": return <AboutPage/>;
       case "contact": return <ContactPage/>;
+      case "bots": return <BotsModule />;
       default: return <NotFoundPage navigate={navigate}/>;
     }
   };
