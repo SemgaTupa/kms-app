@@ -1,16 +1,77 @@
-# React + Vite
+# KMS — Система управления знаниями
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Веб-приложение для хранения, структурирования и поиска корпоративных знаний: статьи, каталог тем, комментарии, избранное и управление пользователями.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Стек технологий
 
-## React Compiler
+| Слой | Технологии |
+|---|---|
+| Фронтенд | React 19, Vite 8 |
+| Бэкенд | Node.js, Express 5 |
+| База данных | lowdb (JSON) |
+| Аутентификация | JWT (jsonwebtoken), bcryptjs |
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Структура проекта
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```
+kms-app/        — фронтенд (React + Vite)
+kms-backend/    — бэкенд (Node.js + Express)
+```
+
+---
+
+## Запуск фронтенда
+
+```bash
+cd kms-app
+npm install
+npm run dev
+```
+
+Приложение будет доступно по адресу: `http://localhost:5173`
+
+---
+
+## Запуск бэкенда
+
+```bash
+cd kms-backend
+npm install
+npm run dev
+```
+
+Сервер запустится на: `http://localhost:3000`
+
+### Переменные окружения
+
+Создай файл `.env` в папке `kms-backend`:
+
+```env
+PORT=3000
+JWT_SECRET=your_secret_key
+```
+
+---
+
+## Ветки разработки
+
+| Ветка | Назначение |
+|---|---|
+| `master` | стабильная версия |
+| `dev` | основная разработка |
+| `feature/auth` | аутентификация и авторизация |
+| `feature/articles` | статьи и каталог |
+| `feature/search` | поиск по базе знаний |
+
+---
+
+## Автор
+
+**Колесников Семён Андреевич**  
+Группа: И-2-23-02  
+РАНХиГС  
+Производственная практика ПП 03.01
